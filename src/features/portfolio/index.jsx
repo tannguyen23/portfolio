@@ -1,15 +1,23 @@
-import Divider from "../../components/Divider";
+import SnowfallBG from "../../components/layouts/SnowfallBG";
 import ToggleButton from "../../components/ToggleButton";
-import AboutMe from "./AboutMe";
-import Me from "./Me";
+import { useDarkMode } from "../../hooks/useDarkMode";
 import Skills from "./Skills";
-import Timeline from "./timelline";
+import Me from "./Me";
+import AboutMe from "./AboutMe";
+import Divider from "../../components/Divider";
+import Timeline from "./timeline";
 
 export default function Portfolio() {
+    const [isDarkMode, setIsDarkMode] = useDarkMode();
+
     return (
-        <div className="container mx-64">
+        <div className="container mx-auto">
+            <SnowfallBG snowColor={isDarkMode ? "#ffffff" : "#577BC1"} />
             <div className="p-1 flex justify-end">
-                <ToggleButton />
+                <ToggleButton
+                    isDarkMode={isDarkMode}
+                    onSetIsDarkMode={setIsDarkMode}
+                />
             </div>
             <div className="flex flex-col gap-4">
                 <Me />
@@ -19,7 +27,6 @@ export default function Portfolio() {
                 <Timeline />
                 <Divider />
                 <Skills />
-                <Timeline />
             </div>
         </div>
     );
