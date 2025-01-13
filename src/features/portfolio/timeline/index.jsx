@@ -58,21 +58,15 @@ export default function Timeline() {
                 {TIMELINE.map((item, idx) => {
                     return (
                         <div
-                            className="relative bg-blue-50 hover:bg-blue-100 dark:hover:bg-blue-700 
-                            hover:shadow-lg cursor-pointer my-2 bg-opacity-70
-                            transition duration-300 pr-8 overflow-hidden z-40
+                            className="my-4 relative bg-blue-50 hover:bg-blue-100 dark:hover:bg-blue-700 
+                            pr-8 z-40
                             rounded-e-lg
                             "
-                            onClick={(event) => {
-                                handleRippleEffect(event);
-                                handleToggleExpand(idx);
-                            }}
                             key={idx}
                         >
                             <details
                                 open={idx === idxExpand}
-                                className=" relative 
-                                      dark:bg-gray-800"
+                                className=" relative "
                                 onClick={(event) => event.preventDefault()}
                             >
                                 <summary className="select-none list-none">
@@ -95,8 +89,14 @@ export default function Timeline() {
                                 className="absolute right-0
                                 rounded-e-lg min-w-8
                                 top-0 bg-blue-300 bg-opacity-40 
-                                h-full 
-                                flex items-center justify-center"
+                                h-full flex items-center justify-center
+                                hover:shadow-lg cursor-pointer
+                                transition duration-300 overflow-hidden 
+                                "
+                                onClick={(event) => {
+                                    handleToggleExpand(idx);
+                                    handleRippleEffect(event);
+                                }}
                             >
                                 {idx === idxExpand ? (
                                     <span className="icon-[si--expand-less-alt-duotone] w-4 h-4"></span>

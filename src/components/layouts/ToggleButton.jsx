@@ -1,5 +1,3 @@
-import { useDarkMode } from "../hooks/useDarkMode";
-
 export default function ToggleButton({ isDarkMode, onSetIsDarkMode }) {
     return (
         <div
@@ -13,9 +11,11 @@ export default function ToggleButton({ isDarkMode, onSetIsDarkMode }) {
             <span className="icon-[material-symbols--dark-mode] text-2xl text-gray-500 mx-4 absolute"></span>
             <div
                 onClick={() => onSetIsDarkMode(!isDarkMode)}
-                className={`w-12 h-8 bg-white dark:bg-gray-500 rounded-full transform transition-transform duration-500 cursor-pointer mx-2 ${
-                    isDarkMode ? "translate-x-16 " : "translate-x-0"
-                }`}
+                className={`flex justify-center items-center w-12 h-8 bg-white dark:bg-gray-500 
+                          hover:bg-slate-200 dark:hover:bg-gray-400 shadow-md shadow-slate-500 dark:shadow-slate-50
+                          rounded-full transform transition-transform duration-500 cursor-pointer mx-2 ${
+                              isDarkMode ? "translate-x-16 " : "translate-x-0"
+                          }`}
             ></div>
         </div>
     );

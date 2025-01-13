@@ -55,6 +55,7 @@ export default function InnerTimeline({ width = 1400, height = 240 }) {
 
     useEffect(() => {
         if (mode === "auto") {
+            // Hiển thị các node và description tự động
             EVENTS.forEach((_, index) => {
                 setTimeout(() => {
                     setVisibleNodes((prev) => {
@@ -64,8 +65,14 @@ export default function InnerTimeline({ width = 1400, height = 240 }) {
                     });
 
                     setActiveDescription(index); // Hiển thị description tự động
-                }, index * 5000);
+                }, index * 5000); // Mỗi node xuất hiện cách nhau 5000ms
             });
+
+            // Sau khi tất cả node hiển thị, chuyển sang manual mode
+            setTimeout(() => {
+                setMode("manual");
+                setActiveDescription(null); // Reset description
+            }, EVENTS.length * 5000); // Tổng thời gian để hiển thị toàn bộ node
         } else {
             // Manual mode: hiển thị tất cả các node ngay lập tức
             setVisibleNodes(Array(EVENTS.length).fill(true));

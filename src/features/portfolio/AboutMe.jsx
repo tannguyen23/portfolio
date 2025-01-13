@@ -5,9 +5,11 @@ export default function AboutMe() {
                 About Me
             </p>
             <p className="font-thin text-gray-500 dark:text-gray-200">
-                I&apos;m Tan Nguyen, I live Ho Chi Minh city, I am a full stack
-                developer at IT department in Vina Takeuchi, I have 2+ year
-                experience in develop internal system for company
+                I&apos;m Tan Nguyen, a fullstack developer dedicated to turning
+                ideas into impactful digital solutions. From front-end
+                development that captivates users to back-end systems that
+                ensure reliability, I bring a holistic approach to software
+                development.
             </p>
         </div>
     );

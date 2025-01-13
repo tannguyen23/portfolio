@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function TypingText({ text = "", speed = 100, className = "" }) {
+export default function TypingText({
+    text = "",
+    speed = 100,
+    className = "",
+    textClassName = "text-lg font-medium text-gray-800 dark:text-gray-200 ",
+}) {
     const [displayedText, setDisplayedText] = useState(""); // Text hiện tại
 
     useEffect(() => {
@@ -24,7 +29,7 @@ export default function TypingText({ text = "", speed = 100, className = "" }) {
 
     return (
         <div className={`flex items-center ${className}`}>
-            <span className="text-lg font-medium text-gray-800 dark:text-gray-200">
+            <span className={`${textClassName} `}>
                 {displayedText}
                 {displayedText.length < text.length && (
                     <span className="animate-blink">|</span>
