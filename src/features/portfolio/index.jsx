@@ -40,37 +40,59 @@ export default function Portfolio() {
                 >
                     <Parallax ref={parallax} pages={3}>
                         <ParallaxLayer
-                            offset={1}
-                            speed={1}
-                            style={{ backgroundColor: "#805E73" }}
-                        />
-                        <ParallaxLayer
-                            offset={2}
-                            speed={1}
-                            style={{ backgroundColor: "#87BCDE" }}
-                        />
+                            offset={0}
+                            speed={0.1}
+                            style={{
+                                display: "flex",
+                                alignItems: "start",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img
+                                src={"/undraw_outer-space_qey5.svg"}
+                                style={{ width: "10%" }}
+                            />
+                        </ParallaxLayer>
 
                         <ParallaxLayer
+                            onClick={() => parallax.current.scrollTo(1)}
                             offset={0}
                             speed={0}
-                            factor={3}
+                            factor={1}
                             style={{
                                 backgroundImage: url("stars", true),
                                 backgroundSize: "cover",
                             }}
-                            sticky={true}
                         >
-                          <MeContainer/>
+                            <MeContainer />
                         </ParallaxLayer>
 
                         <ParallaxLayer
-                            offset={1.3}
-                            speed={-0.3}
-                            style={{ pointerEvents: "none" }}
+                            offset={1}
+                            speed={1}
+                            style={{ backgroundColor: "#805E73", opacity: 0.2 }}
+                        />
+
+                        <ParallaxLayer
+                            offset={1}
+                            speed={0.2}
+                            style={{ opacity: 0.2 }}
                         >
                             <img
-                                src={url("satellite4")}
-                                style={{ width: "15%", marginLeft: "70%" }}
+                                src={url("cloud")}
+                                style={{
+                                    display: "block",
+                                    width: "10%",
+                                    marginLeft: "10%",
+                                }}
+                            />
+                            <img
+                                src={url("cloud")}
+                                style={{
+                                    display: "block",
+                                    width: "20%",
+                                    marginLeft: "75%",
+                                }}
                             />
                         </ParallaxLayer>
 
@@ -93,6 +115,34 @@ export default function Portfolio() {
                                     display: "block",
                                     width: "10%",
                                     marginLeft: "15%",
+                                }}
+                            />
+                        </ParallaxLayer>
+
+                        <ParallaxLayer
+                            onClick={() => parallax.current.scrollTo(2)}
+                            offset={1}
+                            speed={0.9}
+                            style={{
+                                backgroundImage: url("stars", true),
+                                backgroundSize: "cover",
+                                zIndex: 100,
+                            }}
+                        >
+                            <Timeline />
+                        </ParallaxLayer>
+
+                        <ParallaxLayer
+                            offset={1.3}
+                            speed={-0.3}
+                            style={{ pointerEvents: "none", zIndex: 0 }}
+                        >
+                            <img
+                                src={url("satellite4")}
+                                style={{
+                                    width: "15%",
+                                    marginRight: "0%",
+                                    opacity: 0.4,
                                 }}
                             />
                         </ParallaxLayer>
@@ -121,32 +171,17 @@ export default function Portfolio() {
                         </ParallaxLayer>
 
                         <ParallaxLayer
-                            offset={1}
-                            speed={0.2}
-                            style={{ opacity: 0.2 }}
-                        >
-                            <img
-                                src={url("cloud")}
-                                style={{
-                                    display: "block",
-                                    width: "10%",
-                                    marginLeft: "10%",
-                                }}
-                            />
-                            <img
-                                src={url("cloud")}
-                                style={{
-                                    display: "block",
-                                    width: "20%",
-                                    marginLeft: "75%",
-                                }}
-                            />
-                        </ParallaxLayer>
+                            offset={2}
+                            speed={1}
+                            style={{ backgroundColor: "#87BCDE" }}
+                            onClick={() => parallax.current.scrollTo(0)}
+                        />
 
                         <ParallaxLayer
                             offset={1.6}
                             speed={-0.1}
                             style={{ opacity: 0.4 }}
+                            onClick={() => parallax.current.scrollTo(0)}
                         >
                             <img
                                 src={url("cloud")}
@@ -208,61 +243,6 @@ export default function Portfolio() {
                             }}
                         >
                             <img src={url("earth")} style={{ width: "60%" }} />
-                        </ParallaxLayer>
-
-                        <ParallaxLayer
-                            offset={2}
-                            speed={-0.3}
-                            style={{
-                                backgroundSize: "80%",
-                                backgroundPosition: "center",
-                                backgroundImage: url("clients", true),
-                            }}
-                        />
-
-                        <ParallaxLayer
-                            offset={0}
-                            speed={0.1}
-                            onClick={() => parallax.current.scrollTo(1)}
-                            style={{
-                                display: "flex",
-                                alignItems: "start",
-                                justifyContent: "center",
-                            }}
-                        >
-                            <img
-                                src={"/undraw_outer-space_qey5.svg"}
-                                style={{ width: "10%" }}
-                            />
-                        </ParallaxLayer>
-
-                        <ParallaxLayer
-                            offset={1}
-                            speed={0.1}
-                            onClick={() => parallax.current.scrollTo(2)}
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                            }}
-                        >
-                            <img src={url("bash")} style={{ width: "40%" }} />
-                        </ParallaxLayer>
-
-                        <ParallaxLayer
-                            offset={2}
-                            speed={-0}
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                            }}
-                            onClick={() => parallax.current.scrollTo(0)}
-                        >
-                            <img
-                                src={url("clients-main")}
-                                style={{ width: "40%" }}
-                            />
                         </ParallaxLayer>
                     </Parallax>
                 </div>
