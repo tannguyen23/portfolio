@@ -29,7 +29,6 @@ export default function Experience() {
                 {EXPERICENCES?.map((itemExp) => {
                     return renderItem(itemExp);
                 })}
-             
             </div>
         </div>
     );

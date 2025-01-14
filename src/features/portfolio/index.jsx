@@ -1,13 +1,11 @@
 import SnowfallBG from "../../components/layouts/SnowfallBG";
 import ToggleButton from "../../components/layouts/ToggleButton";
 import { useDarkMode } from "../../hooks/useDarkMode";
-import Skills from "./Skills";
-import AboutMe from "./AboutMe";
-import Divider from "../../components/Divider";
 import Timeline from "./timeline";
 import { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import MeContainer from "./me";
+import MyStackContainer from "./my-stack";
 
 export default function Portfolio() {
     const parallax = useRef(null);
@@ -173,14 +171,27 @@ export default function Portfolio() {
                         <ParallaxLayer
                             offset={2}
                             speed={1}
-                            style={{ backgroundColor: "#87BCDE" }}
-                            onClick={() => parallax.current.scrollTo(0)}
+                            style={{ backgroundColor: "#87BCDE", opacity: 0.2 }}
                         />
+
+                        <ParallaxLayer
+                            onClick={() => parallax.current.scrollTo(0)}
+                            offset={2}
+                            speed={0}
+                            factor={1}
+                            style={{
+                                backgroundImage: url("stars", true),
+                                backgroundSize: "cover",
+                                zIndex:50
+                            }}
+                        >
+                            <MyStackContainer />
+                        </ParallaxLayer>
 
                         <ParallaxLayer
                             offset={1.6}
                             speed={-0.1}
-                            style={{ opacity: 0.4 }}
+                            style={{ opacity: 0.2 }}
                             onClick={() => parallax.current.scrollTo(0)}
                         >
                             <img
@@ -212,7 +223,7 @@ export default function Portfolio() {
                         <ParallaxLayer
                             offset={2.6}
                             speed={0.4}
-                            style={{ opacity: 0.6 }}
+                            style={{ opacity: 0.2 }}
                         >
                             <img
                                 src={url("cloud")}
@@ -242,7 +253,7 @@ export default function Portfolio() {
                                 pointerEvents: "none",
                             }}
                         >
-                            <img src={url("earth")} style={{ width: "60%" }} />
+                            <img src={url("earth")} style={{ width: "30%" }} />
                         </ParallaxLayer>
                     </Parallax>
                 </div>
