@@ -1,3 +1,5 @@
+import GlowingText from "../../../components/GlowingText";
+
 const STACKS_FE = [
     {
         name: "ReactJS",
@@ -89,26 +91,30 @@ export default function MyStackContainer() {
 
     return (
         <div className="flex h-full items-center justify-center md:mx-48">
-            <div className="flex flex-col gap-16">
-                <h2 className="text-6xl dark:text-white font-bold">My Stack</h2>
+            <div className="flex flex-col gap-8 ">
+                <GlowingText
+                    text="My Stack"
+                    gradientColors="from-[#857eff] via-[#a69bff] to-[#c3baff]"
+                />
 
-                <div className="flex flex-col gap-16">
+                <div className="flex flex-col gap-8">
                     <div className="flex flex-row gap-16">
                         <div className="flex flex-col items-center justify-center ml-96 gap-4">
                             <h2 className="text-4xl dark:text-white text-blue-600 ">
-                                Front end
+                                FE
                             </h2>
                             <img
-                                src="./browser-window-svgrepo-com.svg"
+                                src="./web-page-browser-analysis-screen-svgrepo-com.svg"
                                 alt="frontend_img"
                                 className="w-24 h-24"
                             />
                         </div>
                         <div
-                            className="border-[#6c63ff] border-opacity-50 border-8 
+                            className="border-[#6c63ff] border-opacity-50 border-1 
                                       min-w-96 min-h-64 border-solid 
-                                      rounded-lg p-8 shadow-2xl
+                                      rounded-lg p-8 
                                       backdrop-blur-md
+                                      shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]
                                       "
                         >
                             <div className="text dark:text-white">
@@ -118,10 +124,11 @@ export default function MyStackContainer() {
                     </div>
                     <div className="flex flex-row gap-16">
                         <div
-                            className="border-[#6c63ff] border-opacity-50 border-8 
+                            className="border-[#6c63ff] border-opacity-50 border-1 
                                       min-w-96 min-h-64 border-solid 
                                       rounded-lg p-8 shadow-2xl
                                       backdrop-blur-md
+                                      shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]
                                       "
                         >
                             <div className="text dark:text-white">
@@ -130,10 +137,10 @@ export default function MyStackContainer() {
                         </div>
                         <div className="flex flex-col justify-center items-center mr-48 gap-4">
                             <h2 className="text-4xl dark:text-white text-blue-600 ">
-                                Back end
+                                BE
                             </h2>
                             <img
-                                src="/server-svgrepo-com.svg"
+                                src="/server-network-part-2-svgrepo-com.svg"
                                 alt="backend_img"
                                 className="w-24 h-24"
                             />
