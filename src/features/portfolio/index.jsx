@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import MeContainer from "./me";
 import MyStackContainer from "./my-stack";
+import Projects from "./projects";
 
 export default function Portfolio() {
     const parallax = useRef(null);
@@ -36,7 +37,7 @@ export default function Portfolio() {
                         background: "#253237",
                     }}
                 >
-                    <Parallax ref={parallax} pages={3}>
+                    <Parallax ref={parallax} pages={4}>
                         <ParallaxLayer
                             offset={0}
                             speed={0.1}
@@ -175,14 +176,14 @@ export default function Portfolio() {
                         />
 
                         <ParallaxLayer
-                            onClick={() => parallax.current.scrollTo(0)}
+                            onClick={() => parallax.current.scrollTo(3)}
                             offset={2}
                             speed={0}
                             factor={1}
                             style={{
                                 backgroundImage: url("stars", true),
                                 backgroundSize: "cover",
-                                zIndex:50
+                                zIndex: 50,
                             }}
                         >
                             <MyStackContainer />
@@ -192,7 +193,6 @@ export default function Portfolio() {
                             offset={1.6}
                             speed={-0.1}
                             style={{ opacity: 0.2 }}
-                            onClick={() => parallax.current.scrollTo(0)}
                         >
                             <img
                                 src={url("cloud")}
@@ -249,22 +249,66 @@ export default function Portfolio() {
                             style={{
                                 display: "flex",
                                 alignItems: "center",
-                                justifyContent: "center",
+                                justifyContent: "end",
                                 pointerEvents: "none",
+                                paddingRight: "260px",
+                                zIndex: 2,
                             }}
                         >
-                            <img src={url("earth")} style={{ width: "30%" }} />
+                            <img
+                                src={url("earth")}
+                                style={{ width: "30%", opacity: 0.8 }}
+                            />
+                        </ParallaxLayer>
+
+                        <ParallaxLayer
+                            offset={3}
+                            speed={0.1}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "end",
+                                paddingRight : "676px",
+                                zIndex: 1,
+                            }}
+                        >
+                            <img
+                                src={"/satellite-svgrepo-com.svg"}
+                                style={{ width: "10%", opacity : '.6' }}
+                            />
+                        </ParallaxLayer>
+                        <ParallaxLayer
+                            offset={3}
+                            speed={0.1}
+                            style={{
+                                display: "flex",
+                                alignItems: "start",
+                                justifyContent: "start",
+                                marginLeft: "64px",
+                                zIndex: 1,
+                            }}
+                        >
+                            <img
+                                src={"/moon-svgrepo-com.svg"}
+                                style={{ width: "10%" , opacity : ".8"}}
+                            />
+                        </ParallaxLayer>
+
+                        <ParallaxLayer
+                            onClick={() => parallax.current.scrollTo(0)}
+                            offset={3}
+                            speed={0}
+                            factor={1}
+                            style={{
+                                backgroundImage: url("stars", true),
+                                backgroundSize: "cover",
+                                zIndex : 3
+                            }}
+                        >
+                            <Projects />
                         </ParallaxLayer>
                     </Parallax>
                 </div>
-
-                {/* <Me />
-                <Divider />
-                <AboutMe />
-                <Divider />
-                <Timeline />
-                <Divider />
-                <Skills /> */}
             </div>
         </div>
     );
