@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GlowingText from "../../../components/GlowingText";
 import Item from "./Item";
+import Button from "../../../components/Button";
 
 export const PROJECTS = [
     {
@@ -81,10 +82,25 @@ export default function Projects() {
                 text="Joined projects"
                 gradientColors="from-[#857eff] via-[#a69bff] to-[#c3baff]"
             />
-            <div className="flex flex-row w-full" style={{perspective : "1000px"}}>
-                {PROJECTS.map((item, idx) => {
-                    return <Item key={idx} style={getStyles(idx)} />;
-                })}
+            <div className="flex flex-col w-full h-full mr-[200px]">
+                <div className="flex flex-row justify-start my-8 ml-[400px] gap-4">
+                <Button className="!rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
+                        hover:!bg-opacity-100 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]">
+                        <span className="icon-[mdi--navigate-before] w-16 h-16 text-white " />
+                    </Button>
+                    <Button className="!rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
+                        hover:!bg-opacity-100 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]">
+                        <span className="icon-[mdi--navigate-next] w-16 h-16 text-white " />
+                    </Button>
+                </div>
+                <div
+                    className="flex flex-row "
+                    style={{ perspective: "1000px" }}
+                >
+                    {PROJECTS.map((item, idx) => {
+                        return <Item key={idx} style={getStyles(idx)} />;
+                    })}
+                </div>
             </div>
         </div>
     );
