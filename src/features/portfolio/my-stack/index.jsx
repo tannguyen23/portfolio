@@ -30,8 +30,8 @@ const STACKS_FE = [
         src: "/css-3-svgrepo-com.svg",
     },
     {
-        name: "ReactJS",
-        src: "/reactjs-svgrepo-com.svg",
+        name: "Typescript",
+        src: "/typescript-svgrepo-com.svg",
     },
 ];
 

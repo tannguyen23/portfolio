@@ -20,6 +20,12 @@ export default function Portfolio() {
             wrap ? ")" : ""
         }`;
 
+    const handleScroll = (page) => {
+        return;
+        // eslint-disable-next-line no-unreachable
+        parallax.current.scrollTo(page);
+    };
+
     return (
         <div className="container overflow-hidden">
             <SnowfallBG snowColor={isDarkMode ? "#ffffff" : "#577BC1"} />
@@ -54,7 +60,7 @@ export default function Portfolio() {
                         </ParallaxLayer>
 
                         <ParallaxLayer
-                            onClick={() => parallax.current.scrollTo(1)}
+                            onClick={() => handleScroll(1)}
                             offset={0}
                             speed={0}
                             factor={1}
@@ -119,7 +125,7 @@ export default function Portfolio() {
                         </ParallaxLayer>
 
                         <ParallaxLayer
-                            onClick={() => parallax.current.scrollTo(2)}
+                            onClick={() => handleScroll(2)}
                             offset={1}
                             speed={0.9}
                             style={{
@@ -176,7 +182,7 @@ export default function Portfolio() {
                         />
 
                         <ParallaxLayer
-                            onClick={() => parallax.current.scrollTo(3)}
+                            onClick={() => handleScroll(3)}
                             offset={2}
                             speed={0}
                             factor={1}
@@ -268,13 +274,13 @@ export default function Portfolio() {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "end",
-                                paddingRight : "676px",
+                                paddingRight: "676px",
                                 zIndex: 1,
                             }}
                         >
                             <img
                                 src={"/satellite-svgrepo-com.svg"}
-                                style={{ width: "10%", opacity : '.6' }}
+                                style={{ width: "10%", opacity: ".6" }}
                             />
                         </ParallaxLayer>
                         <ParallaxLayer
@@ -290,19 +296,19 @@ export default function Portfolio() {
                         >
                             <img
                                 src={"/moon-svgrepo-com.svg"}
-                                style={{ width: "10%" , opacity : ".8"}}
+                                style={{ width: "10%", opacity: ".8" }}
                             />
                         </ParallaxLayer>
 
                         <ParallaxLayer
-                            onClick={() => parallax.current.scrollTo(0)}
+                            onClick={() => handleScroll(0)}
                             offset={3}
                             speed={0}
                             factor={1}
                             style={{
                                 backgroundImage: url("stars", true),
                                 backgroundSize: "cover",
-                                zIndex : 3
+                                zIndex: 3,
                             }}
                         >
                             <Projects />
