@@ -5,21 +5,44 @@ import Button from "../../../components/Button";
 import { moveFirstToLast, moveLastToFirst } from "../../../util/ArrayHelper";
 import { getStyles } from "./util";
 import { PROJECTS } from "./constant";
+import MarkdownRenderer from "../../../components/MarkdownRenderer";
+import Modal from "../../../components/Component";
 
 export default function Projects() {
     const [activeSlide, setActiveSlide] = useState(1);
 
     const [slides, setSlides] = useState(PROJECTS);
 
-    const renderContent = (text) => {
-        return (
-            <span
-                className="text-white text-sm"
-                style={{ whiteSpace: "pre-wrap" }}
-            >
-                {text}
-            </span>
-        );
+    const [isOpen, setIsOpen] = useState();
+
+    const handleOpenModal = () => {
+        setIsOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsOpen(false);
+    };
+
+    const handleBackSlide = () => {
+        if (activeSlide - 1 === 0) {
+            setSlides([...moveLastToFirst(slides)]);
+        } else {
+            setActiveSlide(activeSlide - 1);
+        }
+    };
+
+    const handleNextSlide = () => {
+        if (activeSlide + 1 === slides.length - 1) {
+            setSlides([...moveFirstToLast(slides)]);
+        } else {
+            setActiveSlide(activeSlide + 1);
+        }
+    };
+
+    const handleClickItem = (currectClickIdx) => {
+        if (currectClickIdx > activeSlide) handleNextSlide();
+        if (currectClickIdx < activeSlide) handleBackSlide();
+        if (currectClickIdx === activeSlide) handleOpenModal();
     };
 
     return (
@@ -32,11 +55,7 @@ export default function Projects() {
                 <div className="flex flex-row justify-start mb-28 ml-[400px] gap-4">
                     <Button
                         onClick={() => {
-                            if (activeSlide - 1 === 0) {
-                                setSlides([...moveLastToFirst(slides)]);
-                            } else {
-                                setActiveSlide(activeSlide - 1);
-                            }
+                            handleBackSlide();
                         }}
                         className="!rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
                         hover:!bg-opacity-100 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]"
@@ -45,11 +64,7 @@ export default function Projects() {
                     </Button>
                     <Button
                         onClick={() => {
-                            if (activeSlide + 1 === slides.length - 1) {
-                                setSlides([...moveFirstToLast(slides)]);
-                            } else {
-                                setActiveSlide(activeSlide + 1);
-                            }
+                            handleNextSlide();
                         }}
                         className="!rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
                         hover:!bg-opacity-100 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]"
@@ -58,7 +73,7 @@ export default function Projects() {
                     </Button>
                 </div>
                 <div
-                    className="flex flex-row "
+                    className="flex flex-row mt-46"
                     style={{ perspective: "1000px" }}
                 >
                     {slides.map((item, idx) => {
@@ -69,17 +84,27 @@ export default function Projects() {
                                 className={
                                     activeSlide === idx
                                         ? "!backdrop-blur-none !blur-none"
-                                        : "!backdrop-blur-md"
+                                        : "!backdrop-blur-sm"
                                 }
                                 data={item}
+                                onSelectViewItem={() => {
+                                    handleClickItem(idx);
+                                }}
                             />
                         );
                     })}
                 </div>
-                <div className="border border-1 border-solid border-[#6c63ff] bg-slate-500 p-3 bg-opacity-45
-                mt-[14rem] mr-[560px] ml-[100px] min-h-12 max-h-[32rem] rounded-md overflow-scroll">
-                    {renderContent(slides[activeSlide].description)}
-                </div>
+                <Modal
+                    isOpen={isOpen}
+                    onClose={handleCloseModal}
+                    title={slides[activeSlide].name}
+                >
+                    <div>
+                        <MarkdownRenderer>
+                            {slides[activeSlide].description}
+                        </MarkdownRenderer>
+                    </div>
+                </Modal>
             </div>
         </div>
     );
