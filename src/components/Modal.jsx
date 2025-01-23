@@ -2,7 +2,7 @@ export default function Modal({ isOpen, onClose, title, children }) {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-6xl w-full p-6">
                 <div className="flex justify-between items-center border-b pb-2">
                     <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">

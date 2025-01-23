@@ -1,16 +1,11 @@
-import Avatar from "../../../components/Avatar";
 import TypingText from "../../../components/TypingText";
 import ContactMe from "./ContactMe";
 
 export default function Me() {
     return (
         <div className="p-1 flex flex-row gap-8">
-            <img src="/undraw_teaching_58yg.svg" className="w-3/4"></img>
+            <img src="/undraw_teaching_58yg.svg" className="w-3/4 hidden md:block"></img>
             <div className="flex flex-row gap-2">
-                {/* <Avatar
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqXH8yOvJEwNnzghe_4y6u0y6uzmRSOZYK_A&s"
-                    size="20"
-                /> */}
                 <div className="flex flex-col gap-4">
                     <p className="font-sans font-bold text-6xl dark:text-white">
                         About me

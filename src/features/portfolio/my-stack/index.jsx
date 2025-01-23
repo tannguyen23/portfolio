@@ -73,7 +73,7 @@ const STACKS_BE = [
 export default function MyStackContainer() {
     const renderStackIcons = (list) => {
         return (
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-8">
                 {list.map((item, idx) => {
                     return (
                         <div
@@ -90,7 +90,7 @@ export default function MyStackContainer() {
     };
 
     return (
-        <div className="flex h-full items-center justify-center md:mx-48">
+        <div className="flex items-start justify-center md:mx-48 h-full">
             <div className="flex flex-col gap-8 ">
                 <GlowingText
                     text="My Stack"
@@ -98,21 +98,21 @@ export default function MyStackContainer() {
                 />
 
                 <div className="flex flex-col gap-8">
-                    <div className="flex flex-row gap-16">
-                        <div className="flex flex-col items-center justify-center ml-96 gap-4">
+                    <div className="flex flex-col md:flex-row gap-16">
+                        <div className="hidden md:flex flex-col items-center justify-center ml:none md:ml-96 gap-4 ">
                             <h2 className="text-4xl dark:text-white text-blue-600 ">
                                 FE
                             </h2>
                             <img
                                 src="./web-page-browser-analysis-screen-svgrepo-com.svg"
                                 alt="frontend_img"
-                                className="w-24 h-24"
+                                className="w-24 h-24 hidden md:block"
                             />
                         </div>
                         <div
                             className="border-[#6c63ff] border-opacity-50 border-1 
                                       min-w-96 min-h-64 border-solid 
-                                      rounded-lg p-8 
+                                      rouned-none md:rounded-lg p-8 
                                       backdrop-blur-md
                                       shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]
                                       "
@@ -122,11 +122,11 @@ export default function MyStackContainer() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-row gap-16">
+                    <div className="hidden md:flex flex-col-reverse md:flex-row gap-16">
                         <div
                             className="border-[#6c63ff] border-opacity-50 border-1 
                                       min-w-96 min-h-64 border-solid 
-                                      rounded-lg p-8 shadow-2xl
+                                      rouned-none md:rounded-lg p-8 shadow-2xl
                                       backdrop-blur-md
                                       shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]
                                       "
@@ -135,14 +135,14 @@ export default function MyStackContainer() {
                                 {renderStackIcons(STACKS_BE)}
                             </div>
                         </div>
-                        <div className="flex flex-col justify-center items-center mr-48 gap-4">
+                        <div className="hidden md:flex flex-row justify-center items-center mr:0 md:mr-48 gap-4">
                             <h2 className="text-4xl dark:text-white text-blue-600 ">
                                 BE
                             </h2>
                             <img
                                 src="/server-network-part-2-svgrepo-com.svg"
                                 alt="backend_img"
-                                className="w-24 h-24"
+                                className="w-24 h-24 hidden md:block"
                             />
                         </div>
                     </div>

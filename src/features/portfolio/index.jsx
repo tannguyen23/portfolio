@@ -20,9 +20,9 @@ export default function Portfolio() {
     };
 
     return (
-        <div className="container overflow-hidden">
+        <div className="container overflow-auto">
             <SnowfallBG snowColor={isDarkMode ? "#ffffff" : "#577BC1"} />
-            <div className="absolute right-1 m-2 mx-4 z-50">
+            <div className="absolute right-1 m-4 mx-4 z-40">
                 <ToggleButton
                     isDarkMode={isDarkMode}
                     onSetIsDarkMode={setIsDarkMode}
@@ -277,7 +277,7 @@ export default function Portfolio() {
                             />
                         </ParallaxLayer>
                         <ParallaxLayer
-                            offset={3}
+                            offset={4}
                             speed={0.1}
                             style={{
                                 display: "flex",

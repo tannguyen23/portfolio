@@ -6,7 +6,7 @@ export default function Item({
     showImg = true,
 }) {
     return (
-        <div className="mb-8 pl-4 min-h-24 ">
+        <div className="mb-8 min-h-24 ">
             <div className="relative ">
                 {showImg ? (
                     <div className="absolute -left-44 -top-1/2 w-24 h-24 flex items-center justify-center ">
@@ -16,7 +16,7 @@ export default function Item({
                     <></>
                 )}
 
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col justify- items-center sm:flex-row sm:justify-between sm:items-start">
                     <h3 className="text-4xl font-semibold text-gray-800 dark:text-white">
                         {title}
                     </h3>

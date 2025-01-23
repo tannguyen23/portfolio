@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import * as d3 from "d3";
 import TypingTextSVG from "../../../../components/TypingTextSVG";
+import clsx from "clsx";
+
+const LABEL_X_OFFSET = 38;
+const LABEL_Y_OFFSET = 46;
 
 export default function InnerTimeline({ events, width = 1600, height = 240 }) {
     const xScale = d3
@@ -48,13 +52,12 @@ export default function InnerTimeline({ events, width = 1600, height = 240 }) {
     };
 
     return (
-        <div className="flex flex-col">
+        <div className={clsx("flex flex-col mt-[46px]")}>
             <svg
                 width={width}
                 height={height}
                 className="timeline overflow-visible"
             >
-                {/* Đường nối */}
                 {events.slice(0, -1).map((_, i) => (
                     <line
                         key={i}
@@ -95,8 +98,8 @@ export default function InnerTimeline({ events, width = 1600, height = 240 }) {
                 {events.map((event, i) => (
                     <text
                         key={i}
-                        x={xScale(i) - 50}
-                        y={event.y - 35}
+                        x={xScale(i) - LABEL_X_OFFSET}
+                        y={event.y - LABEL_Y_OFFSET}
                         textAnchor="start"
                         className="text-sm fill-blue-500 dark:fill-yellow-300"
                         style={{
