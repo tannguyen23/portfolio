@@ -6,7 +6,7 @@ import { moveFirstToLast, moveLastToFirst } from "../../../util/ArrayHelper";
 import { getStyles } from "./util";
 import { PROJECTS } from "./constant";
 import MarkdownRenderer from "../../../components/MarkdownRenderer";
-import Modal from "../../../components/Component";
+import Modal from "../../../components/Modal";
 
 export default function Projects() {
     const [activeSlide, setActiveSlide] = useState(1);

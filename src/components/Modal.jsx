@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function Modal({ isOpen, onClose, title, children }) {
     if (!isOpen) return null;
 
@@ -22,14 +20,6 @@ export default function Modal({ isOpen, onClose, title, children }) {
                     {children}
                 </div>
 
-                <div className="mt-6 flex justify-end">
-                    <button
-                        onClick={onClose}
-                        className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition"
-                    >
-                        Close
-                    </button>
-                </div>
             </div>
         </div>
     );
