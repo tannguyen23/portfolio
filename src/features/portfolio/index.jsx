@@ -13,13 +13,6 @@ export default function Portfolio() {
 
     const [isDarkMode, setIsDarkMode] = useDarkMode();
 
-    const url = (name, wrap = false) =>
-        `${
-            wrap ? "url(" : ""
-        }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
-            wrap ? ")" : ""
-        }`;
-
     const handleScroll = (page) => {
         return;
         // eslint-disable-next-line no-unreachable
@@ -65,7 +58,7 @@ export default function Portfolio() {
                             speed={0}
                             factor={1}
                             style={{
-                                backgroundImage: url("stars", true),
+                                backgroundImage: "/stars.svg",
                                 backgroundSize: "cover",
                             }}
                         >
@@ -84,7 +77,7 @@ export default function Portfolio() {
                             style={{ opacity: 0.2 }}
                         >
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "10%",
@@ -92,7 +85,7 @@ export default function Portfolio() {
                                 }}
                             />
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "20%",
@@ -107,7 +100,7 @@ export default function Portfolio() {
                             style={{ opacity: 0.1 }}
                         >
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "20%",
@@ -115,7 +108,7 @@ export default function Portfolio() {
                                 }}
                             />
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "10%",
@@ -129,7 +122,7 @@ export default function Portfolio() {
                             offset={1}
                             speed={0.9}
                             style={{
-                                backgroundImage: url("stars", true),
+                                backgroundImage: "stars.svg",
                                 backgroundSize: "cover",
                                 zIndex: 100,
                             }}
@@ -143,7 +136,7 @@ export default function Portfolio() {
                             style={{ pointerEvents: "none", zIndex: 0 }}
                         >
                             <img
-                                src={url("satellite4")}
+                                src={"satellite4.svg"}
                                 style={{
                                     width: "15%",
                                     marginRight: "0%",
@@ -158,7 +151,7 @@ export default function Portfolio() {
                             style={{ opacity: 0.1 }}
                         >
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "20%",
@@ -166,7 +159,7 @@ export default function Portfolio() {
                                 }}
                             />
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "20%",
@@ -187,7 +180,7 @@ export default function Portfolio() {
                             speed={0}
                             factor={1}
                             style={{
-                                backgroundImage: url("stars", true),
+                                backgroundImage: "stars.svg",
                                 backgroundSize: "cover",
                                 zIndex: 50,
                             }}
@@ -201,7 +194,7 @@ export default function Portfolio() {
                             style={{ opacity: 0.2 }}
                         >
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "20%",
@@ -209,7 +202,7 @@ export default function Portfolio() {
                                 }}
                             />
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "25%",
@@ -217,7 +210,7 @@ export default function Portfolio() {
                                 }}
                             />
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "10%",
@@ -232,7 +225,7 @@ export default function Portfolio() {
                             style={{ opacity: 0.2 }}
                         >
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "20%",
@@ -240,7 +233,7 @@ export default function Portfolio() {
                                 }}
                             />
                             <img
-                                src={url("cloud")}
+                                src={"cloud.svg"}
                                 style={{
                                     display: "block",
                                     width: "15%",
@@ -262,7 +255,7 @@ export default function Portfolio() {
                             }}
                         >
                             <img
-                                src={url("earth")}
+                                src={"earth.svg"}
                                 style={{ width: "30%", opacity: 0.8 }}
                             />
                         </ParallaxLayer>
@@ -306,7 +299,7 @@ export default function Portfolio() {
                             speed={0}
                             factor={1}
                             style={{
-                                backgroundImage: url("stars", true),
+                                backgroundImage: "stars.svg",
                                 backgroundSize: "cover",
                                 zIndex: 3,
                             }}
