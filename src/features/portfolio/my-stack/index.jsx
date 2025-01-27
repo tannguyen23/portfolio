@@ -1,29 +1,33 @@
+import { useState } from "react";
 import Button from "../../../components/Button";
 import GlowingText from "../../../components/GlowingText";
-import { STACKS_BE, STACKS_FE } from "./constant";
-
-// Tách component StackIcons để tái sử dụng và giữ logic hiển thị danh sách công nghệ
-const StackIcons = ({ list }) => (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-8">
-        {list.map((item, idx) => (
-            <div
-                key={idx}
-                className="flex flex-col gap-2 items-center justify-center"
-            >
-                <img src={item.src || "/default-icon.png"} className="w-24" />
-                <p className="text-2xl">{item.name || "Unnamed"}</p>
-            </div>
-        ))}
-    </div>
-);
+import BEStack from "./BEStack";
+import FEStack from "./FEStack";
 
 export default function MyStackContainer() {
     const handleBackSlide = () => {
-        console.log("Navigate Back");
+      setActiveSlide(0)
     };
 
     const handleNextSlide = () => {
-        console.log("Navigate Next");
+      setActiveSlide(1)
+    };
+
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    const getStyles = (activeSlide, index) => {
+        if (activeSlide === index)
+            return {
+                transform: "translateX(0px) ",
+            };
+        else if (activeSlide - 1=== index)
+            return {
+                transform: "translateX(-510px) ",
+            };
+        else if (activeSlide + 1 === index)
+            return {
+                transform: "translateX(510px)",
+            };
     };
 
     return (
@@ -56,57 +60,10 @@ export default function MyStackContainer() {
                 </div>
 
                 {/* Phần hiển thị Frontend */}
-                <div className="flex flex-col md:flex-row gap-16">
-                    <div className="hidden md:flex flex-col items-center justify-center ml:none md:ml-96 gap-4">
-                        <h2 className="text-4xl dark:text-white text-blue-600">
-                            FE
-                        </h2>
-                        <img
-                            src="./web-page-browser-analysis-screen-svgrepo-com.svg"
-                            alt="frontend_img"
-                            className="w-24 h-24 hidden md:block"
-                        />
-                    </div>
-                    <div
-                        className="border-[#6c63ff] border-opacity-50 border-1 
-                                      min-w-96 min-h-64 border-solid 
-                                      rouned-none md:rounded-lg p-8 
-                                      backdrop-blur-md
-                                      shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]"
-                    >
-                        <div className="text dark:text-white">
-                            <StackIcons list={STACKS_FE} />
-                        </div>
-                    </div>
-                </div>
+                <FEStack style={getStyles(activeSlide, 0)} />
 
                 {/* Phần hiển thị Backend */}
-                <div
-                    className="absolute bottom-0 md:relative transform transition-transform duration-1000 translate-x-full md:translate-x-0 ml-32 md:ml-0
-                                  flex flex-col-reverse md:flex-row gap-16"
-                >
-                    <div
-                        className="border-[#6c63ff] border-opacity-50 border-1 
-                                      min-w-96 min-h-64 border-solid 
-                                      rouned-none md:rounded-lg p-8
-                                      backdrop-blur-md
-                                      shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]"
-                    >
-                        <div className="text dark:text-white">
-                            <StackIcons list={STACKS_BE} />
-                        </div>
-                    </div>
-                    <div className="hidden md:flex flex-row justify-center items-center mr:0 md:mr-48 gap-4">
-                        <h2 className="text-4xl dark:text-white text-blue-600">
-                            BE
-                        </h2>
-                        <img
-                            src="/server-network-part-2-svgrepo-com.svg"
-                            alt="backend_img"
-                            className="w-24 h-24 hidden md:block"
-                        />
-                    </div>
-                </div>
+                <BEStack style={getStyles(activeSlide, 1)} />
             </div>
         </div>
     );
