@@ -15,21 +15,13 @@ export default function MyStackContainer() {
 
     const [activeSlide, setActiveSlide] = useState(0);
 
-    const getStyles = (activeSlide, index) => {
-        if (activeSlide === index)
-            return {
-                transform: "translateX(0px) ",
-            };
-        else if (activeSlide - 1=== index)
-            return {
-                transform: "translateX(-510px) ",
-            };
-        else if (activeSlide + 1 === index)
-            return {
-                transform: "translateX(510px)",
-            };
+    const getSlideClasses = (activeSlide, index) => {
+      if (activeSlide === index) return "translate-x-0";
+      if (activeSlide - 1 === index) return "-translate-x-[510px]";
+      if (activeSlide + 1 === index) return "translate-x-[510px]";
+      return "hidden";
     };
-
+    
     return (
         <div className="flex items-center md:items-start justify-center md:mx-48 h-full">
             <div className="relative md:flex flex-col gap-8">
@@ -39,7 +31,7 @@ export default function MyStackContainer() {
                         onClick={() => {
                             handleBackSlide();
                         }}
-                        className="!rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
+                        className="relative md:hidden !rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
                                       hover:!bg-opacity-100 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]"
                     >
                         <span className="icon-[mdi--navigate-before] w-16 h-16 text-white " />
@@ -52,7 +44,7 @@ export default function MyStackContainer() {
                         onClick={() => {
                             handleNextSlide();
                         }}
-                        className="!rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
+                        className="relative md:hidden !rounded-full w-16 h-16 !bg-[#6c63ff] !bg-opacity-30 
                                       hover:!bg-opacity-100 hover:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#6c63ff,0_0_15px_#6c63ff,0_0_30px_#6c63ff]"
                     >
                         <span className="icon-[mdi--navigate-next] w-16 h-16 text-white " />
@@ -60,10 +52,10 @@ export default function MyStackContainer() {
                 </div>
 
                 {/* Phần hiển thị Frontend */}
-                <FEStack style={getStyles(activeSlide, 0)} />
+                <FEStack cn={getSlideClasses(activeSlide, 0)} />
 
                 {/* Phần hiển thị Backend */}
-                <BEStack style={getStyles(activeSlide, 1)} />
+                <BEStack cn={getSlideClasses(activeSlide, 1)} />
             </div>
         </div>
     );

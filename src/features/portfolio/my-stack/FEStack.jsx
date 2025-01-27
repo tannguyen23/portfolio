@@ -1,11 +1,15 @@
 import { STACKS_FE } from "./util/constant";
 import { StackIcons } from "./StackIcons";
+import clsx from "clsx";
 
-export default function FEStack({ style }) {
+export default function FEStack({ cn }) {
     return (
         <div
-            className="flex flex-col md:flex-row gap-16 transform transition-transform duration-1000"
-            style={style}
+            className={clsx(
+                "flex flex-col md:flex-row gap-16 transform transition-transform duration-1000",
+                cn,
+                "md:!translate-x-0"
+            )}
         >
             <div className="hidden md:flex flex-col items-center justify-center ml:none md:ml-96 gap-4">
                 <h2 className="text-4xl dark:text-white text-blue-600">FE</h2>

@@ -1,13 +1,15 @@
 import { STACKS_BE } from "./util/constant";
 import { StackIcons } from "./StackIcons";
+import clsx from "clsx";
 
-export default function BEStack({ style }) {
+export default function BEStack({ cn }) {
     return (
         <div
-            // className="absolute bottom-0 md:relative transform transition-transform duration-1000 translate-x-full md:translate-x-0 ml-32 md:ml-0
-            //     flex flex-col-reverse md:flex-row gap-16"
-            className="absolute bottom-0 flex flex-col md:flex-row gap-16 md:relative transform transition-transform duration-1000"
-            style={style}
+            className={clsx(
+                "absolute bottom-0 flex flex-col md:flex-row gap-16 md:relative transform transition-transform duration-1000",
+                cn,
+                "md:!translate-x-0"
+            )}
         >
             <div
                 className="border-[#6c63ff] border-opacity-50 border-1 
