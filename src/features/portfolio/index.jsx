@@ -11,7 +11,7 @@ import Projects from "./projects";
 export default function Portfolio() {
     const parallax = useRef(null);
 
-    const [isDarkMode, setIsDarkMode] = useDarkMode();
+    const [isDarkMode, setIsDarkMode] = useDarkMode(true);
 
     const handleScroll = (page) => {
         return;
