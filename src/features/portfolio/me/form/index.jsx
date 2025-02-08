@@ -1,17 +1,16 @@
-import { useState } from 'react';
-// import axios from 'axios';
+import { useState } from "react";
 
 export default function Form() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    phone: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    phone: "",
   });
 
-  const [status, setStatus] = useState('');
-  
+  const [status, setStatus] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -20,29 +19,36 @@ export default function Form() {
     }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    
-    // Validate the form data
-    // if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-    //   setStatus('Please fill out all required fields.');
-    //   return;
-    // }
 
-    // try {
-    //   const response = await axios.post('http://localhost:5000/send-email', formData);
-    //   setStatus('Email sent successfully!');
-    // } catch (error) {
-    //   setStatus('Error sending email. Please try again.');
-    // }
+    // Email người nhận
+    const recipient = "example@example.com"; // Thay bằng email của bạn
+
+    // Encode nội dung email
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "N/A"}\n\nMessage:\n${formData.message}`
+    );
+
+    // Tạo link mailto
+    const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+    // Mở ứng dụng email
+    window.location.href = mailtoLink;
+
+    // Hiển thị thông báo
+    setStatus("Opening email client...");
   };
 
   return (
-    <div className="mx-auto p-6 bg-white dark:bg-gray-800 ">
+    <div className="mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Name Field */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Name
+          </label>
           <input
             type="text"
             name="name"
@@ -54,10 +60,12 @@ export default function Form() {
             required
           />
         </div>
-        
+
         {/* Email Field */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -69,10 +77,12 @@ export default function Form() {
             required
           />
         </div>
-        
+
         {/* Subject Field */}
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Subject</label>
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Subject
+          </label>
           <input
             type="text"
             name="subject"
@@ -87,7 +97,9 @@ export default function Form() {
 
         {/* Phone Field */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Phone (optional)</label>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Phone (optional)
+          </label>
           <input
             type="text"
             name="phone"
@@ -101,7 +113,9 @@ export default function Form() {
 
         {/* Message Field */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Message
+          </label>
           <textarea
             name="message"
             value={formData.message}
@@ -115,7 +129,7 @@ export default function Form() {
         </div>
 
         {/* Status Message */}
-        {status && <p className="text-center text-sm text-red-500">{status}</p>}
+        {status && <p className="text-center text-sm text-green-500">{status}</p>}
 
         {/* Submit Button */}
         <div className="text-center">

@@ -20,7 +20,7 @@ const GlowingText = ({
       </span>
 
       {/* Foreground Text */}
-      <h1
+      <span
         className={clsx(
           "relative bg-gradient-to-r",
           gradientColors,
@@ -30,7 +30,7 @@ const GlowingText = ({
         )}
       >
         {text}
-      </h1>
+      </span>
     </div>
   );
 };

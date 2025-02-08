@@ -36,7 +36,7 @@ export default function Portfolio() {
                         background: "#253237",
                     }}
                 >
-                    <Parallax ref={parallax} pages={4}>
+                    <Parallax ref={parallax} pages={5}>
                         <ParallaxLayer
                             offset={0}
                             speed={0.1}
